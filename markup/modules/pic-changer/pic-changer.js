@@ -39,6 +39,24 @@ function PicChanger(options) {
         var randomPic = Math.floor(Math.random() * picList.pics.length);
         imgs[randomImg].setAttribute('src', picPath + picList.pics[randomPic]);
       }, 500);
+
+      // создаём обёртку для изображений
+      var pcContent = document.createElement('div');
+      pcContent.className = 'pic-changer_content';
+
+      // создаём заголовок контента
+      var pcContentHeader = document.createElement('div');
+      pcContentHeader.className = 'pic-changer_content-header';
+      pcContentHeader.textContent = 'Заголовок';
+      pcContent.appendChild(pcContentHeader);
+
+      // создаём текст контента
+      var pcContentText = document.createElement('div');
+      pcContentText.className = 'pic-changer_content-text';
+      pcContentText.textContent = 'Текстовое описание использования данного приложения';
+      pcContent.appendChild(pcContentText);
+
+      elem.appendChild(pcContent);
     }
   };
 
