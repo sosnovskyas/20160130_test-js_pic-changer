@@ -1,6 +1,5 @@
 function PicChanger(options) {
   var elem = options.elem;
-  var imgs = elem.querySelectorAll('img');
 
   var xmlhttp = new XMLHttpRequest();
   var url = 'pic-changer.json';
@@ -12,15 +11,27 @@ function PicChanger(options) {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       var picList = JSON.parse(xmlhttp.responseText);
 
-      // заполняем все найденные img случайным изображением
-      for (index = 0; index < imgs.length; ++index) {
+      // создаём обёртку для изображений
+      var pcList = document.createElement('div');
+      pcList.className = 'pic-changer_pic-list';
+      elem.appendChild(pcList);
 
+      // заполняем img
+      for (i = 0; i < 24; ++i) {
         // генерим случайное число в рамках массива изображений
         var randomNum = Math.floor(Math.random() * picList.pics.length);
 
+        var pcListItem = document.createElement('img');
+        pcListItem.className = 'pic-changer_pic-item';
+
         // заполняем img случайным изображением
-        imgs[index].setAttribute('src', picPath + picList.pics[randomNum]);
+        pcListItem.setAttribute('src', picPath + picList.pics[randomNum]);
+
+        // помещяем изображения в обёртку
+        pcList.appendChild(pcListItem);
       }
+
+      var imgs = pcList.querySelectorAll('img');
 
       // запускаем таймер смены случайного изображения
       var changeTimer = window.setInterval(function () {
