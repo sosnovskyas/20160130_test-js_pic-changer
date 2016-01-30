@@ -2,8 +2,8 @@ function PicChanger(options) {
   var elem = options.elem;
 
   var xmlhttp = new XMLHttpRequest();
-  var url = 'pic-changer.json';
-  var picPath = '/static/img/content/';
+  var url = options.imageListFile;
+  var picPath = options.staticPath;
 
   // INIT
   xmlhttp.onreadystatechange = function () {
@@ -68,5 +68,7 @@ function PicChanger(options) {
 var picChanger = new PicChanger({
   elem: document.querySelector('.pic-changer'),
   header: 'Заголовок',
-  text: 'Текстовое описание использования данного приложения'
+  text: 'Текстовое описание использования данного приложения',
+  staticPath: '/static/img/content/',
+  imageListFile: 'pic-changer.json'
 });
