@@ -1,0 +1,10 @@
+mixin pic-changer(data)
+  .pic-changer
+    .pic-changer_pic-list
+      - for (var x = 0; x < 24; x++)
+        img(src='' alt='pic').pic-changer_pic-item
+    .pic-changer_content
+      .pic-changer_content-header
+        | Заголовок
+      .pic-changer_content-text
+        | Текстовое описание использования данного приложения
