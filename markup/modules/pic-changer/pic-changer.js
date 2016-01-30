@@ -47,13 +47,13 @@ function PicChanger(options) {
       // создаём заголовок контента
       var pcContentHeader = document.createElement('div');
       pcContentHeader.className = 'pic-changer_content-header';
-      pcContentHeader.textContent = 'Заголовок';
+      pcContentHeader.textContent = options.header;
       pcContent.appendChild(pcContentHeader);
 
       // создаём текст контента
       var pcContentText = document.createElement('div');
       pcContentText.className = 'pic-changer_content-text';
-      pcContentText.textContent = 'Текстовое описание использования данного приложения';
+      pcContentText.textContent = options.text;
       pcContent.appendChild(pcContentText);
 
       elem.appendChild(pcContent);
@@ -66,5 +66,7 @@ function PicChanger(options) {
 }
 
 var picChanger = new PicChanger({
-  elem: document.querySelector('.pic-changer')
+  elem: document.querySelector('.pic-changer'),
+  header: 'Заголовок',
+  text: 'Текстовое описание использования данного приложения'
 });
