@@ -10,6 +10,12 @@
 - Sass/SCSS
 - Gulp
 
+## Зависимости
+Для запуска проекта необходимо использовать TARS. Для работы с ним рекомендуется использовать утилиту tars-cli (https://github.com/tars/tars-cli), установить которую можно следующим образом.
+```
+# npm i -g tars-cli
+```
+
 ## Запуск проекта
 ```
 $ git clone https://github.com/sosnovskyas/20160130_test-js_pic-changer.git <YOUR/PROJECT/DIR>
